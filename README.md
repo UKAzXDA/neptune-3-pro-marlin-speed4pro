@@ -8,9 +8,9 @@ Baixe `ZNP_ROBIN_NANO.bin` nos **Assets** do release mais recente. O arquivo tam
 
 ## Resultado relatado
 
-O responsável pelo projeto relata que testou o firmware em uma Neptune 3 Pro e que o teste passou, com qualidade de impressão e velocidade comparáveis à velocidade padrão de uma Neptune 4 Pro. Esse é um relato de uso, não um benchmark independente nem uma garantia de resultado em outras impressoras, materiais ou configurações.
+Testado o firmware em uma Neptune 3 Pro, com qualidade de impressão e velocidade comparáveis à velocidade padrão de uma Neptune 4 Pro. Esse é um relato de uso, não um benchmark independente nem uma garantia de resultado em outras impressoras, materiais ou configurações.
 
-Também foi relatada compatibilidade com uma versão recente da tela LCD Elegoo. O modelo e a versão exata da tela não foram informados; portanto, a compatibilidade com outras revisões não é garantida.
+A compatibilidade com uma versão recente da tela LCD Elegoo. O modelo e a versão exata da tela não foram informados; portanto, a compatibilidade com outras revisões não é garantida.
 
 ## Alterações de configuração
 
