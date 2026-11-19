@@ -1,0 +1,19 @@
+# PlatformIO build output and downloaded dependencies
+**/.pio/
+**/pio/libdeps/
+
+# Compiled and intermediate files
+*.elf
+*.hex
+*.map
+*.o
+*.d
+*.su
+*.sym
+*.lss
+
+# Local editor and operating-system files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
