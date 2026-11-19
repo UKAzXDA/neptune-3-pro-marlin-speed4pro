@@ -12,6 +12,61 @@ Testado o firmware em uma Neptune 3 Pro, com qualidade de impressão e velocidad
 
 A compatibilidade com uma versão recente da tela LCD Elegoo. O modelo e a versão exata da tela variante; portanto, a compatibilidade com outras revisões não é garantida.
 
+## Usar perfis e G-code do Cura
+
+Para usar o desempenho deste firmware com uma versão recente do Cura Elegoo:
+
+1. Use as configurações de velocidade e extrusão do perfil da Neptune 4 Pro como referência.
+2. Mantenha `Velocidade de impressão = 100%` e `Taxa de fluxo = 100%` no perfil enquanto estiver calibrando.
+3. Copie o G-code de início e fim da configuração da Neptune 3 Pro e substitua apenas esses blocos no perfil da Neptune 4 Pro.
+4. Não copie automaticamente todos os parâmetros da Neptune 4 Pro. Tamanho da mesa, limites do eixo Z, sondagem e outros parâmetros específicos devem continuar compatíveis com a Neptune 3 Pro.
+
+Os comandos `M220 S100` e `M221 S100` do bloco abaixo restauram velocidade e fluxo para 100%.
+
+### G-code de início
+
+```gcode
+;;===== date: 20240520 =====================
+M400 ; wait for buffer to clear
+;[printer_model]
+;initial_filament:{filament_type[initial_extruder]}
+;curr_bed_type={curr_bed_type}
+M220 S100 ;Set the feed speed to 100%
+M221 S100 ;Set the flow rate to 100%
+M104 S140
+M190 S[bed_temperature_initial_layer_single]
+G90
+G28 ;home
+;G29 ; run abl mesh
+M420 S1 ; load mesh
+G1 Z10 F300
+G1 X{print_bed_max[0]*0.5-50} Y0.5 F6000
+G1 Z0.4 F300
+M109 S[nozzle_temperature_initial_layer]
+G92 E0 ;Reset Extruder
+G1 X{print_bed_max[0]*0.5+50} E30 F400 ;Draw the first line
+G1 Z0.6 F120.0 ;Move to side a little
+G1 X{print_bed_max[0]*0.5+47} F3000
+G92 E0 ;Reset Extruder
+;LAYER_COUNT:[total_layer_count]
+;LAYER:0
+```
+
+### G-code de fim
+
+```gcode
+;PRINT_END
+G90 ;Absolute positionning
+M83 ; extruder relative mode
+G1 X10 Y{print_bed_max[1]*0.8} Z{min(max_layer_z+50, printable_height)} E-5 F{travel_speed*60} ; Move print head up
+M106 S0 ;Turn-off fan
+M104 S0 ;Turn-off hotend
+M140 S0 ;Turn-off bed
+M84 X Y E ;Disable all steppers but Z
+```
+
+Use valores de velocidade e fluxo conservadores no primeiro teste. Velocidade alta, fluxo excessivo ou um G-code incompatível com a revisão da máquina podem causar perda de passos, obstruções, superaquecimento ou danos mecânicos.
+
 ## Alterações de configuração
 
 As alterações estão em `Firmware/Mainboard/Marlin-2.1.1_TJC_029/Marlin-2.1.1_TJC_029/Marlin/Configuration.h` e `Configuration_adv.h`:
