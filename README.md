@@ -6,17 +6,16 @@ Firmware comunitário não oficial para a Elegoo Neptune 3 Pro, baseado no Marli
 
 Baixe `ZNP_ROBIN_NANO.bin` nos **Assets** do release mais recente. O arquivo também está na raiz deste repositório.
 
-## Resultado relatado
+## Resultado
 
-Testado o firmware em uma Neptune 3 Pro, com qualidade de impressão e velocidade comparáveis à velocidade padrão de uma Neptune 4 Pro. Esse é um relato de uso, não um benchmark independente nem uma garantia de resultado em outras impressoras, materiais ou configurações.
+Qualidade de impressão e velocidade comparáveis à velocidade padrão de uma Neptune 4 Pro. Esse é um relato de uso, não um benchmark independente nem uma garantia de resultado em outras impressoras, materiais ou configurações.
 
-A compatibilidade com uma versão recente da tela LCD Elegoo. O modelo e a versão exata da tela variante; portanto, a compatibilidade com outras revisões não é garantida.
+A compatibilidade com uma versão recente da tela LCD Elegoo. O modelo e a versão exata da tela vareia; portanto, a compatibilidade com outras revisões não é garantida.
 
 ## Usar perfis e G-code do Cura
 
-Para usar o desempenho deste firmware com versão recente do Cura Elegoo:
-Use as configurações do perfil da Neptune 4 Pro e coloque G-code de início e fim da Neptune 3 pro
-
+Para usar o desempenho deste firmware, faça reset de fabrica no painel, e com versão recente do Cura Elegoo:
+Use as configurações do perfil da Neptune 4 Pro e coloque G-code de início e fim da Neptune 3 pro.
 
 ### G-code de início
 
