@@ -6,61 +6,6 @@ Firmware comunitário não oficial para a Elegoo Neptune 3 Pro, baseado no Marli
 
 Baixe `ZNP_ROBIN_NANO.bin` nos **Assets** do release mais recente. O arquivo também está na raiz deste repositório.
 
-## Resultado
-
-Qualidade de impressão e velocidade comparáveis à velocidade padrão de uma Neptune 4 Pro. Esse é um relato de uso, não um benchmark independente nem uma garantia de resultado em outras impressoras, materiais ou configurações.
-
-A compatibilidade com uma versão recente da tela LCD Elegoo. O modelo e a versão exata da tela vareia; portanto, a compatibilidade com outras revisões não é garantida.
-
-## Usar perfis e G-code do Cura
-
-Para usar o desempenho deste firmware, faça reset de fabrica no painel, e com versão recente do Cura Elegoo:
-Use as configurações do perfil da Neptune 4 Pro e coloque G-code de início e fim da Neptune 3 pro.
-
-### G-code de início
-
-```gcode
-;;===== date: 20240520 =====================
-M400 ; wait for buffer to clear
-;[printer_model]
-;initial_filament:{filament_type[initial_extruder]}
-;curr_bed_type={curr_bed_type}
-M220 S100 ;Set the feed speed to 100%
-M221 S100 ;Set the flow rate to 100%
-M104 S140
-M190 S[bed_temperature_initial_layer_single]
-G90
-G28 ;home
-;G29 ; run abl mesh
-M420 S1 ; load mesh
-G1 Z10 F300
-G1 X{print_bed_max[0]*0.5-50} Y0.5 F6000
-G1 Z0.4 F300
-M109 S[nozzle_temperature_initial_layer]
-G92 E0 ;Reset Extruder
-G1 X{print_bed_max[0]*0.5+50} E30 F400 ;Draw the first line
-G1 Z0.6 F120.0 ;Move to side a little
-G1 X{print_bed_max[0]*0.5+47} F3000
-G92 E0 ;Reset Extruder
-;LAYER_COUNT:[total_layer_count]
-;LAYER:0
-```
-
-### G-code de fim
-
-```gcode
-;PRINT_END
-G90 ;Absolute positionning
-M83 ; extruder relative mode
-G1 X10 Y{print_bed_max[1]*0.8} Z{min(max_layer_z+50, printable_height)} E-5 F{travel_speed*60} ; Move print head up
-M106 S0 ;Turn-off fan
-M104 S0 ;Turn-off hotend
-M140 S0 ;Turn-off bed
-M84 X Y E ;Disable all steppers but Z
-```
-
-Use valores de velocidade e fluxo conservadores no primeiro teste. Velocidade alta, fluxo excessivo ou um G-code incompatível com a revisão da máquina podem causar perda de passos, obstruções, superaquecimento ou danos mecânicos.
-
 ## Alterações de configuração
 
 As alterações estão em `Firmware/Mainboard/Marlin-2.1.1_TJC_029/Marlin-2.1.1_TJC_029/Marlin/Configuration.h` e `Configuration_adv.h`:
