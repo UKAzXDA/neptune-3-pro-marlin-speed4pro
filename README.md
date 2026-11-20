@@ -14,8 +14,8 @@ A compatibilidade com uma versão recente da tela LCD Elegoo. O modelo e a vers�
 
 ## Usar perfis e G-code do Cura
 
-Para usar o desempenho deste firmware com uma versão recente do Cura Elegoo:
-Use as configurações de velocidade e extrusão do perfil da Neptune 4 Pro e coloque G-code de início e fim da Neptune 3 pro
+Para usar o desempenho deste firmware com versão recente do Cura Elegoo:
+Use as configurações do perfil da Neptune 4 Pro e coloque G-code de início e fim da Neptune 3 pro
 
 
 ### G-code de início
