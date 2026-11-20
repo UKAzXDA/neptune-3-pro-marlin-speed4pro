@@ -12,7 +12,3 @@
 - Adaptive Step Smoothing habilitado.
 - Input Shaping não incluído: a versão do Marlin presente no pacote não implementa as opções solicitadas.
 - Binário publicado: `ZNP_ROBIN_NANO.bin`.
-
-### Teste informado
-
-O responsável relata teste concluído em uma Neptune 3 Pro, com qualidade e velocidade comparáveis à configuração padrão de uma Neptune 4 Pro, e compatibilidade com uma versão recente da tela LCD. Não foram fornecidos dados de benchmark nem as versões exatas da tela, e o resultado não foi verificado independentemente.
